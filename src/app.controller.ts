@@ -1,10 +1,15 @@
-import { Controller, Header, Post, Req } from '@nestjs/common';
+import { Controller, Get, Header, Post, Req } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from 'express';
 
 @Controller()
 export class AppController {
 	constructor(private readonly appService: AppService) {}
+
+	@Get('/')
+	hellowWorld(): string {
+		return 'Hello world';
+	}
 
 	@Post('/analyze')
 	@Header('Content-Type', 'application/json')
